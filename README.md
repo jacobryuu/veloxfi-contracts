@@ -1,83 +1,43 @@
-# Geektime Rust 语言训练营
+# veloxfi-contracts
 
-## 环境设置
+スマートコントラクト
 
-### 安装 Rust
+## プロジェクト概要
 
-```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-```
+このプロジェクトは、Rust言語で記述されたスマートコントラクトを開発するためのものです。`veloxfi-contracts`という名前で、Rust 2021エディションを使用しています。
 
-### 安装 VSCode 插件
+## 使用技術
 
-- crates: Rust 包管理
-- Even Better TOML: TOML 文件支持
-- Better Comments: 优化注释显示
-- Error Lens: 错误提示优化
-- GitLens: Git 增强
-- Github Copilot: 代码提示
-- indent-rainbow: 缩进显示优化
-- Prettier - Code formatter: 代码格式化
-- REST client: REST API 调试
-- rust-analyzer: Rust 语言支持
-- Rust Test lens: Rust 测试支持
-- Rust Test Explorer: Rust 测试概览
-- TODO Highlight: TODO 高亮
-- vscode-icons: 图标优化
-- YAML: YAML 文件支持
+- **Rust**: 高性能で安全なスマートコントラクト開発に適したプログラミング言語。
+- **Cargo**: Rustのビルドシステムとパッケージマネージャー。
+- **cargo-deny**: 依存関係のセキュリティとライセンスをチェックするためのツール。
+- **pre-commit**: コミット前にコードの品質チェックを自動的に実行するためのフレームワーク。
 
-### 安装 cargo generate
+## ビルドと実行
 
-cargo generate 是一个用于生成项目模板的工具。它可以使用已有的 github repo 作为模版生成新的项目。
+プロジェクトをビルドするには、以下のコマンドを実行します。
 
 ```bash
-cargo install cargo-generate
+cargo build
 ```
 
-在我们的课程中，新的项目会使用 `tyr-rust-bootcamp/template` 模版生成基本的代码：
+プロジェクトを実行するには、以下のコマンドを実行します。
 
 ```bash
-cargo generate tyr-rust-bootcamp/template
+cargo run
 ```
 
-### 安装 pre-commit
+## テスト
 
-pre-commit 是一个代码检查工具，可以在提交代码前进行代码检查。
+ユニットテストを実行するには、以下のコマンドを実行します。
 
 ```bash
-pipx install pre-commit
+cargo test
 ```
 
-安装成功后运行 `pre-commit install` 即可。
+## コード品質と依存関係の管理
 
-### 安装 Cargo deny
+このプロジェクトでは、コード品質と依存関係の健全性を保つために以下のツールを使用しています。
 
-Cargo deny 是一个 Cargo 插件，可以用于检查依赖的安全性。
-
-```bash
-cargo install --locked cargo-deny
-```
-
-### 安装 typos
-
-typos 是一个拼写检查工具。
-
-```bash
-cargo install typos-cli
-```
-
-### 安装 git cliff
-
-git cliff 是一个生成 changelog 的工具。
-
-```bash
-cargo install git-cliff
-```
-
-### 安装 cargo nextest
-
-cargo nextest 是一个 Rust 增强测试工具。
-
-```bash
-cargo install cargo-nextest --locked
-```
+- **cargo-deny**: 依存関係の脆弱性、ライセンス、重複などをチェックします。設定は`deny.toml`ファイルで行われます。
+- **pre-commitフック**: コミット時に自動的にコードフォーマット（`cargo fmt`）、リンティング（`cargo clippy`）、型チェック（`cargo check`）、依存関係チェック（`cargo deny check`）、テスト（`cargo test`）、タイポチェック（`typos`）などの様々なチェックを実行します。これにより、コードベースの一貫性と品質が維持されます。
